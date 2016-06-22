@@ -1,0 +1,70 @@
+@include maxbreakpoint(md) {
+
+
+}
+@include minbreakpoint(sm) {
+
+	.container{
+		padding: 0 40px;
+	}
+
+	.collapse.navbar-collapse.navbar-ex1-collapse{
+	    background-color: #fff;
+	    li{
+	      width: 100%;
+	    }
+
+	  }
+
+	.header-central{
+		margin-top: 80px;
+		.hi-message{
+			padding: 4px;
+			 @include transform(translate(85px, 35px) );
+		}
+	 .header-avatar{
+	    height: 150px;
+	    width: 150px;
+	    }
+	    .me-name{
+	    	font-size: 24px;
+	    	padding-top: 8px;
+	    }
+	    .me-tag{
+	    	font-size: 16px;
+	    	padding: 4px;
+	    }
+	}
+
+
+	// Timeline
+
+	.timeline-posts .timeline{
+		.fa{
+	        left: 80px;
+	    }
+		.date{
+			width: 70px;
+			font-size: 12px;
+		}
+		.event{
+	        margin-left: 90px;
+	    }
+	}
+
+	// Testinominal
+
+	.slider-lines .lines{
+		.avatar{
+			height: 64px;
+			width: 64px;
+		}
+	  	 .avatar-about{
+	  	 	padding: 8px 24px;
+	  	 	.avatar-name{
+				font-size: 16px;
+	  	 	}
+	  	 }
+	 }
+}
+

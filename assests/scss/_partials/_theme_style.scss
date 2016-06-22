@@ -1,0 +1,1218 @@
+
+/*
+TABLE OF CONTENT
+-----------------------
+1. GENERAL CLASS
+2. NAV BAR
+3. HOME SECTION
+4. ABOUT SECTION
+5. TEAM SECTION
+6. PRICING
+7. SKILLS
+8. CLIENTS
+9. CONTACT
+10.BLOG
+11.CALLOUT AREA
+12.PARALLAX TITLE AREA
+13.EFFECT
+14.FOOTER
+15.PORTFOLIO WRAPPER
+16.PROJECT DETAILS
+17.PROJECT FILTER
+18.PORTFOLIO ITEM
+19.ISOTOPE
+20.BUTTON
+*/
+
+
+/* ######################
+ 1.GENERAL CLASS
+######################### */
+body{
+	color: #2F4F4F;
+	margin: 0;
+	padding: 0;
+	font-family: $primary_font;
+	font-size: 18px;
+	background-color: #F8F8F8;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+@include font-face("lato", "/assests/fonts/Lato/Lato-Regular", normal, normal);
+@include font-face("roboto", "/assests/fonts/Roboto/Roboto-Regular", normal, normal);
+
+
+h1, h2, h3, h4, h5,h6, button{
+	font-family: $title_font;
+  line-height: 1.5;
+}
+h1, h2{
+	color: $color1;
+}
+h3, h4{
+  color: $color2;
+}
+h1 {
+  font-size: 45px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.12px;
+  font-weight: 600;
+  color: $color3;
+}
+
+h6 {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+
+p {
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 24px;
+  font-family: $primary_font;
+  color: $color2;
+}
+p.article {
+  word-spacing: 0.20em;
+  color: $color2;
+}
+
+
+ul{
+	list-style-type: none;
+}
+li, ul{
+	margin: 0;
+	padding: 0;
+}
+a{
+	color: $primary_accent2;
+	@include transition(all .3s ease-in);
+	&:hover, &:focus, &:active{
+		text-decoration: none;
+	}
+  &:hover{
+    color: $primary_accent3;
+  }
+}
+button{
+  border: 0;
+  color: #191919;
+  padding: 15px;
+  &:focus{
+    outline: 0;
+  }
+}
+.elmvisible{
+	opacity: 1;
+}
+.elmhidden{
+	opacity: 0.7;
+}
+.bg-transparent{
+	background-color: none;
+}
+
+// input
+input{
+  &:focus{
+    outline: 0;
+  }
+}
+
+/* ######################
+ 2. Buttons
+######################### */
+
+.btn1{
+  border: 3px solid $primary_accent1;
+  background-color: transparent;
+  color: $primary_accent1;
+  margin: 8px;
+  @include card(1);
+  @include transition(.3s all ease-in);
+  .fa{
+    margin-right: 8px;
+  }
+  &:hover{
+    @include card(2);
+     border: 3px solid $primary_accent1;
+     background-color: $primary_accent1;
+     color: $color9;
+  }
+
+}
+
+.btn2{
+  background-color: #006269;
+  border: 3px solid transparent;
+  @include transition(.4s all ease-in);
+  color: $color8;
+  .fa{
+    margin-right: 8px;
+  }
+  &:hover{
+    @include card(1);
+    background-color: $primary_accent1;
+    color: $color9;
+  }
+}
+
+/* ######################
+ 3.Preloader
+######################### */
+
+.preloader-wrapper{
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($primary_accent1, 0.99);
+  z-index: 9999999;
+  text-align: center;
+  @include vCenter();
+  .preloader{
+    .la-pacman{margin: 0 auto; color: $primary_color1; }
+
+  }
+}
+
+/* ######################
+ 4. Header
+######################### */
+.menu-icon{
+  margin-top: 8px;
+  position: relative;
+  @include transition(all .3s $ease-in-quad  );
+  .bar{
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 24px;
+  background-color: $primary_color1;
+  margin: auto;
+    &:after, &:before{
+      content: ' ';
+      position: absolute;
+      height: 3px;
+      width: 24px;
+      background-color: $primary_color1;
+      left: 0;
+    }
+    &:after{
+      top: 8px;
+    }
+    &:before{
+      top: -8px;
+    }
+
+    }
+    &.open{
+      .bar{
+        background-color: transparent;
+         &:after{
+          top: 0px;
+          @include transform(rotate(-45deg) );
+        }
+        &:before{
+          top: 0px;
+          @include transform(rotate(45deg) );
+        }
+      }
+
+    }
+  }
+
+// Top wrapper
+.top-wrapper{
+  position: fixed;
+  z-index: 8888;
+  padding: 12px  0;
+  background-color: rgba($color1, 0.2);
+  @include transition(.3s all ease-in);
+  width: 100%;
+  .logo{
+      padding: 12px 10px;
+      a{
+        color: $primary_accent4;
+        font-weight: 900;
+        text-transform: uppercase;
+        &:hover{
+          color: $primary_accent5;
+        }
+    }
+  }
+
+  .menu-wrapper{
+    padding: 0 8px;
+    position: relative;
+    overflow: hidden;
+  }
+  &.attach{
+    background-color: $color9;
+    @include card(2);
+    padding: 8px 0;
+
+    .rotate-box{
+      //display: none;
+    }
+  }
+}
+
+//Menu
+.navbar{
+  background-color: transparent;
+  border: 0px;
+  padding-top: 10px;
+  margin-bottom: 0;
+  .navbar-toggle{
+		margin: 0;
+    margin-right: 15px;
+    border: 0px;
+    .fa{
+      color: $primary_color1;
+      font-size: 28px;
+    }
+    &:hover , &:focus , &:active{
+      background-color: transparent;
+    }
+  }
+  .nav.navbar-nav.navbar-right{
+      li{
+        display: inline-block;
+        padding: 4px 8px;
+        a{
+          font-size: 15px;
+          font-weight: 600;
+          color: $primary_accent3;
+          text-transform: uppercase;
+          padding: 6px 0;
+          &:hover{
+            color: $primary_accent5;
+          }
+        }
+      }
+    }
+}
+//Social icons
+  .social-icons{
+    padding: 10px;
+    li{
+      display: inline-block;
+      padding: 5px 2px;
+      .fa{
+        height: 32px;
+        width: 32px;
+        border-radius: 50%;
+        text-align: center;
+        padding: 8px;
+        background-color: $primary_accent1;
+        @include transition(.3s all ease-in);
+        color: $color9;
+        &:hover{
+          color: $primary_accent1;
+          background-color: $color9;
+          @include transform(scale(1.2));
+        }
+
+        }
+    }
+  }
+
+
+// header-wrapper
+.header-wrapper{
+  background-color: $primary_accent1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include transition(.3s all ease-in);
+  width: 100%;
+
+  .hi-message{
+    background-color: $primary_color1;
+    display: inline-block;
+    color: $color9;
+    font-weight: 400;
+    padding: 8px;
+    @include card(1);
+    @include transform(translate(100px, 50px) );
+  }
+
+  .header-avatar{
+    height: 200px;
+    width: 200px;
+    @include transition(.3s all ease-in);
+    margin: 0 auto;
+    background-color: $color9;
+    border-radius: 50%;
+    @include card(4);
+    overflow: hidden;
+    img{
+      width: 135%;
+      height: auto;
+    }
+  }
+  .me-name{
+    font-size: 32px;
+    color: $color9;
+    padding-top: 16px;
+    @include animation(bounceIn 25s $ease-in-quint alternate infinite);
+    span{
+      font-weight: 200;
+    }
+  }
+  .me-tag{
+    font-size: 18px;
+    color: #bdbdbd;
+    padding: 8px;
+  }
+}
+.header-wrapper-blog{
+	background-color: $primary_accent1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	height: 400px;
+	.banner-img{
+		position: absolute;
+		top: 0;
+		left: 0;
+		@include animation(item_scale 60s $ease-in-quad alternate infinite);
+		width: 100%;
+		height: auto;
+		.banner-meta{
+			position: absolute;
+			top: 35%;
+			left: 0;
+			width: 100%;
+			text-align: center;
+			h1{color: $color9;}
+		}
+	}
+}
+@include keyframes(item_scale) {
+  0% {
+    @include transform(scale(1));
+  }
+  50% {
+    @include transform(scale(1.15) translate(15px, 15px));
+  }
+	100% {
+    @include transform(scale(1.30) translate(0px, 0px));
+  }
+}
+/* ######################
+ 5. section title
+######################### */
+.section-title{
+  padding-bottom: 64px;
+  text-align: center;
+  @include animation(item_fadeIn .5s ease-in alternate);
+  h2{
+    text-transform: uppercase;
+    padding: 8px;
+    font-weight: 900;
+    font-size: 32px;
+    color: $color1;
+  }
+  .sep{
+    margin: 16px auto;
+    width: 25%;
+    background-color: $color6;
+    height: 4px;
+    position: relative;
+    &::after{
+      position: absolute;
+      top: 0;
+      margin-left: -10px;
+      margin-top: -10px;
+      content: "\f198";
+      font-size: 20px;
+      color: $color3;
+      font-family: 'FontAwesome';
+    }
+  }
+  p{
+    font-weight: 600;
+  }
+}
+
+.section-title.secondary{
+  h2{color: $color9;}
+  .sep{
+    background-color: $color2;
+    opacity: 0.5;
+    &::after{
+      color: $color7;
+    }
+  }
+}
+
+.aside-title{
+  padding: 15px 0;
+  border-bottom: 2px solid #bdbdbd;
+  .fa{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 32px;
+    padding: 16px;
+    width: 36px;
+    color: $primary_accent1;
+  }
+  h5{
+    margin-left: 64px;
+    color: $primary_color1;
+  }
+}
+
+.content-wrapper{
+  padding-top: 120px;
+  margin-top: -1px;
+  padding-bottom: 121px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section1{
+  padding-top: 200px;
+  padding-bottom: 200px;
+
+}
+.about-section2{
+  background-color: rgba($primary_accent3,.87);
+  padding-top: 120px;
+  padding-bottom: 120px;
+  position: relative;
+  overflow: hidden;
+}
+// About
+.content-wrapper#about{
+  padding: 0px;
+  background-color: $primary_accent5;
+  background: url("images/cover.png") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+// progress bars
+.content-wrapper#progress-bars{
+  text-align: center;
+  background-color: $primary_accent2;
+}
+
+// counters
+
+// services
+.content-wrapper#services{
+  background-color: $primary_accent3;
+}
+// services
+.content-wrapper#counters{
+  background-color: $primary_accent1;
+}
+
+// resume
+.content-wrapper#resume{
+  background-color: #e0e0e0;
+}
+
+// Testinominal
+.content-wrapper.testinominal{
+  background-color: $color1;
+}
+.content-wrapper#pricing{
+  text-align: center;
+  background-color: $color1;
+}
+.content-wrapper#portfolio{
+  text-align: center;
+  background-color: $primary_accent1;
+}
+.content-wrapper#blog{
+  background-color: $color7;
+}
+.content-wrapper.partners{
+  text-align: center;
+  background-color: $color1;
+}
+// banner
+.content-wrapper.banner{
+  background: url("images/hire_me.jpg") no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+// contact
+.content-wrapper#contact{
+  text-align: center;
+  background-color: $color8;
+}
+// google map
+.content-wrapper.gmap-wrap{
+  background-color: $color3;
+  padding: 0;
+}
+// Elements
+
+.intro-text{
+  text-align: center;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 300;
+}
+.intro-links{
+  padding: 24px 0;
+  text-align: center;
+}
+
+.icon-box1{
+  padding: 32px 0;
+  text-align: center;
+  @include word-wrap(normal);
+  .fa{
+    height: 96px;
+    width: 96px;
+    border-radius: 50%;
+    background-color: $primary_accent1;
+    padding: 32px;
+    font-size: 32px;
+    color: $primary_color1;
+  }
+  h5{
+    color: $color5;
+    font-weight: 900;
+  }
+  p{
+    color: $color8;
+    font-size: 16px;
+  }
+}
+// author sayings
+.author-saying{
+  padding: 18px;
+  .fa{
+    color: $primary_accent4;
+    font-size: 48px;
+  }
+  .quote-right, .quote-left{
+    margin: 8px 0;
+  }
+  .quote-right{
+    text-align: right;
+  }
+  p{
+    color: $color9;
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+//Icon box 2
+
+.icon-box2{
+  padding: 32px 0;
+  text-align: center;
+  @include transition(.3s all $ease-in-out-circ);
+  border-radius: 5px;
+  .fa{
+    font-size: 42px;
+    color: $color6;
+    padding: 32px;
+    margin-bottom: 16px;
+    border: 4px solid $color6;
+    @include transition(.3s all $ease-in-out-circ);
+    cursor: pointer;
+  }
+  p{
+    color: $color8;
+    font-size: 16px;
+  }
+  &:hover{
+    .fa{
+      color: $color9;
+      background: $primary_accent1;
+      border: 4px solid $primary_accent1;
+      @include card(1);
+     }
+
+  }
+}
+// counters
+.counter{
+  padding: 32px 0;
+  text-align: center;
+  .counter-amount{
+    font-size: 48px;
+    font-weight: bold;
+    color: $primary_color1;
+  }
+  .counter-desc{
+    color: $color8;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}
+// Slider Lines
+.slider-lines{
+  .lines{
+    margin: 32px;
+    background-color:rgba($primary_accent1, .97);
+    border-radius: 5px;
+    @include card(2);
+    p{ color: $color9; padding: 24px; }
+      .avatar{
+      position: absolute;
+      overflow: hidden;
+      height: 72px;
+      width: 72px;
+      background-color: $color9;
+      bottom: 0;
+      right: 0;
+      margin: 48px;
+      @include card(3);
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .avatar-about{
+      text-align: right;
+      margin-right: 72px;
+      padding: 16px 32px;
+      @include card(1);
+      li{ padding: 4px;}
+      .avatar-name{ color: $primary_accent5; text-transform: uppercase; font-weight: 500; }
+      .avatar-position{ font-size: 12px; color: $primary_accent4; }
+    }
+  }
+}
+
+
+// Progress bar like in skills
+.pbar {
+    width: 100px;
+    display: inline-block;
+    position: relative;
+    margin: 48px 0;
+    text-align: center;
+    line-height: 1.2;
+    font-size: 20px;
+      strong {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      line-height: 40px;
+      font-size: 30px;
+      color: $color9;
+    }
+    h4{
+      text-align: center;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      color: $color9;
+      padding-top: 8px;
+      letter-spacing: .03em;
+    }
+
+  }
+
+  // Timeline
+
+  .timeline-posts{
+    padding: 32px 0;
+    .timeline{
+      position: relative;
+      overflow: hidden;
+      .fa{
+        position: absolute;
+        top: 24px;
+        left: 110px;
+        padding: 4px;
+        background-color: $color1;
+        color: $primary_color1;
+        border-radius: 50%;
+      }
+      .date{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100px;
+        font-size: 14px;
+        color: $color3;
+        background-color: $color5;
+        margin-right: 20px;
+        padding: 8px;
+        margin: 25px 0;
+      }
+      .event{
+        margin-left: 120px;
+        margin-bottom: 30px;
+        border-left: 12px solid $color1;
+        padding: 24px 8px;
+        background-color: $primary_accent1;
+        @include card(1);
+        p{
+          color: $color9;
+        }
+        span{
+          font-size: 14px;
+          color: $primary_accent4;
+        }
+
+      }
+    }
+  }
+
+
+  //pricing-table
+.pricing-table{
+  margin: 24px;
+  @include card(1);
+  .pricing-price{
+    background-color: $color7;
+    padding: 24px;
+    text-align: center;
+    strong{
+      font-size: 64px;
+      color: $primary_accent1;
+    }
+    .price-dollar{
+      padding: 4px;
+      color: $primary_color1;
+      font-size: 48px;
+    }
+  }
+  .pricing-details{
+    text-align: left;
+    position: relative;
+    padding: 24px;
+    padding-top: 56px;
+    background-color: $primary_accent1;
+    .triangle{
+      @include triangle(32px, $color7, down);
+      position: absolute;
+      z-index: 99;
+      top: -1px;
+      left: 45%;
+      right: 45%;
+    }
+    .pricing-button{
+      position: absolute;
+      right: 24px;
+      top: -26px;
+      text-align: center;
+      .fa{
+        height: 48px;
+        width: 48px;
+        padding: 14px;
+        background-color: $primary_color1;
+          color: $color9;
+        @include card(2);
+        border-radius: 50%;
+        @include transition(.3s all $ease-in-quart);
+        &:hover{
+          background-color: $color9;
+          color: $primary_color1;
+        }
+      }
+    }
+    .pricing-features{
+      li{
+        padding: 8px 0px;
+        color: $color9;
+        .fa{
+          margin-right: 16px;
+          color: $primary_color1;
+        }
+      }
+    }
+  }
+}
+.pricing-table.gold{
+  .pricing-details{
+    background: $primary_accent1;
+  }
+}
+.pricing-table.silver{
+  .pricing-details{
+    background: $primary_accent3;
+  }
+}
+.pricing-table.platinium{
+  .pricing-details{
+    background: $primary_accent2;
+  }
+}
+
+// portfolio
+.portfolio-items{
+  .portfolio-single{
+    padding: 0;
+    .portfolio-item{
+      margin: 2px;
+      position: relative;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: auto;
+         @include transition(.3s all $ease-in-out-circ);
+      }
+      .portfolio-details{
+        visibility: hidden;
+        position: absolute;
+        @include transition(.3s all $ease-in-quart);
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 101%;
+        height: 101%;
+        @include vCenter();
+        background-color: rgba($color1, 0.8);
+        text-align: center;
+        h5{color: $color8;}
+        span{
+          color: $primary_accent5;
+          padding: 4px;
+         }
+      }
+      &:hover{
+        img{
+          @include transform(scale(1.25) rotate(-5deg));
+        }
+        .portfolio-details{
+          visibility: visible;
+          opacity: 1;
+          h5{
+            @include animation(.4s item_slideLeft $ease-in-quart alternate);
+          }
+          span{
+            @include animation(.5s item_slideLeft $ease-in-quart alternate);
+          }
+        }
+      }
+    }
+  }
+}
+
+.portfoliolist{
+  text-align: center;
+  margin-bottom: 32px;
+  ul{
+    margin: 16px 0;
+    li{
+      display: inline-block;
+      margin: 16px 0;
+      a{
+        color: $primary_accent1;
+        padding: 8px;
+        margin: 2px;
+        color: $color8;
+        background-color: $primary_accent3;
+        &:hover, &:focus, &:active{
+          background-color: $primary_accent2;
+          color: $color9;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// Blog box
+.blog-box{
+  margin: 24px;
+  position: relative;
+  overflow: hidden;
+  background-color: $color9;
+  @include card(1);
+  @include transition(.3s all $ease-in-quart);
+  .blog-img{
+    position: relative;
+    overflow: hidden;
+    img{
+      width: 100%;
+      @include transition(.3s all $ease-in-quart);
+      &:hover{
+        @include transform(scale(1.20) rotate(-5deg));
+      }
+    }
+  }
+  .blog-details{
+    padding: 16px 8px;
+
+    h2{
+      font-size: 18px;
+      line-height: 24px;
+      color: $primary_color1;
+    }
+    .corner{
+      background-color: $primary_accent1;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      bottom:0;
+      right: 0;
+      @include card(1);
+      @include transform( rotate(-45deg) translate(0px, 90px));
+    }
+
+  }
+  .blog-meta{
+    position: relative;
+    overflow: hidden;
+    padding: 10px;
+    border-bottom: 2px solid $primary_accent5;
+    .meta-menu{
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 14px 4px;
+      .fa{
+        color: $color3;
+      }
+    }
+    ul{
+      font-size: 12px;
+      li{
+        display: inline-block;
+        margin: 6px 0;
+        margin-right: 6px;
+        .fa{
+            color: $color4;
+            margin-right: 3px;
+          }
+        a{
+          padding: 4px;
+          color: $color3;
+        }
+      }
+    }
+  }
+  &:hover{
+
+  }
+}
+
+// Companies
+.companies{
+  .company{
+    margin: 24px;
+  }
+}
+
+//banner
+.banner-box{
+  text-align: center;
+  h2{
+    color: $color9;
+  }
+  p{
+    color: $color6;
+  }
+  button{
+    margin: 16px;
+  }
+}
+
+// contact form
+.contact-info{
+  text-align: center;
+  margin-bottom: 30px;
+  h3{
+    padding: 10px;
+    font-size: 20px;
+    line-height: 24px;
+    color: $primary_color1;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  p{
+    padding: 5px;
+    color: $color3;
+  }
+}
+.contact-form{
+  text-align: center;
+  margin-top: 30px;
+  .contact-input{
+    width: 100%;
+    border: none;
+    margin: 10px 0;
+    border-bottom: 2px solid $color5;
+    background-color: transparent;
+    height: 40px;
+    @include transition(all .4s ease-in);
+    &:focus{
+      border-bottom: 2px solid $primary_accent1;
+    }
+  }
+  .contact-ta{
+    margin: 20px 0;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid $color5;
+    background-color: transparent;
+    @include transition(all .4s $ease-in-out-circ);
+    &:focus{
+      outline: 0;
+      border-bottom: 2px solid $primary_accent1;
+    }
+  }
+}
+// google map
+.contact-gmap{
+    .gmap{
+      background-color: $color3;
+      height: 600px;
+    }
+}
+
+
+
+// Footer
+
+.footer-wrapper{
+  padding: 120px 0;
+  background-color: $color1;
+  .copyright-text{
+    text-align: center;
+    color: $color9;
+  }
+}
+
+//scroll top
+.scroll-top{
+  position: fixed;
+  overflow: hidden;
+  bottom: 48px;
+  right: 48px;
+  height: 48px;
+  width: 48px;
+  padding: 8px;
+  font-size: 18px;
+  text-align: center;
+  background-color: $primary_accent5;
+  color: $color8;
+  z-index: 9999;
+  visibility: hidden;
+  opacity: 0;
+  @include transition(.3s all $ease-in-quart);
+  @include card(2);
+  &:hover, &:focus{
+    background-color: $primary_accent4;
+    color: $color9;
+    @include card(3);
+  }
+  &.show{
+    visibility: visible;
+    opacity: 1;
+    @include animation(item_slideRight .3s $ease-in-quint alternate);
+  }
+}
+// Animations
+@include keyframes(item_slideLeft) {
+  from {
+    opacity: 0;
+    @include transform(translate(-30px, 0));
+  }
+  to {
+    opacity: 1;
+    @include transform(translate(0,0));
+  }
+}
+@include keyframes(item_slideRight) {
+  from {
+    opacity: 0;
+    @include transform(translate(30px, 0));
+  }
+  to {
+    opacity: 1;
+    @include transform(translate(0,0));
+  }
+}
+@include keyframes(item_slideUp) {
+  from {
+    opacity: 0;
+    @include transform(translate(0, 30px));
+  }
+  to {
+    opacity: 1;
+    @include transform(translate(0,0));
+  }
+}
+@include keyframes(item_slideDown) {
+  from {
+    opacity: 0;
+    @include transform(translate(0, -30px));
+  }
+  to {
+    opacity: 1;
+    @include transform(translate(0,0));
+  }
+}
+
+@include keyframes(item_fadeIn) {
+  from {
+    opacity: .6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.item_slideRight{
+  @include animation(item_slideRight .5s ease-in alternate);
+}
+.item_slideLeft{
+  @include animation(item_slideLeft .5s ease-in alternate);
+}
+.item_slideUp{
+  @include animation(item_slideUp .5s ease-in alternate);
+}
+.item_slideDown{
+  @include animation(item_slideDown .5s ease-in alternate);
+}
+.item_fadeIn{
+  @include animation(item_fadeIn .5s $ease-in-quad alternate);
+}
