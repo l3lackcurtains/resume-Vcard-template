@@ -1949,7 +1949,7 @@ input:focus { outline: 0; }
 
 .about-section2 { background-color: rgba(0, 98, 105, 0.87); padding-top: 120px; padding-bottom: 120px; position: relative; overflow: hidden; }
 
-.content-wrapper#about { padding: 0px; background-color: #00BAB5; background: url("images/cover.png") no-repeat; background-attachment: fixed; background-size: cover; background-position: center; }
+.content-wrapper#about { padding: 0px; background-color: #00BAB5; background: url("images/cover.jpg") no-repeat; background-attachment: fixed; background-size: cover; background-position: center; }
 
 .content-wrapper#progress-bars { text-align: center; background-color: #003D4E; }
 
